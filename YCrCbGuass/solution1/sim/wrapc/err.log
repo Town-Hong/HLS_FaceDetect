@@ -1,0 +1,9 @@
+In file included from D:/studyapp_new/VIVADO/vivado201704/Vivado/2017.4/include/floating_point_v7_0_bitacc_cmodel.h:143:0,
+                 from D:/studyapp_new/VIVADO/vivado201704/Vivado/2017.4/include/hls_fpo.h:172,
+                 from D:/studyapp_new/VIVADO/vivado201704/Vivado/2017.4/include/hls_half.h:57,
+                 from D:/studyapp_new/VIVADO/vivado201704/Vivado/2017.4/include/ap_int.h:74,
+                 from apatb_ImgProcess_Top.cpp:15:
+D:/studyapp_new/VIVADO/vivado201704/Vivado/2017.4/include/gmp.h:62:0: warning: "__GMP_LIBGMP_DLL" redefined [enabled by default]
+D:/studyapp_new/VIVADO/vivado201704/Vivado/2017.4/include/floating_point_v7_0_bitacc_cmodel.h:135:0: note: this is the location of the previous definition
+In file included from apatb_ImgProcess_Top.cpp:20:0:
+D:/studyapp_new/VIVADO/vivado201704/Vivado/2017.4/include/ap_stream.h:70:2: warning: #warning AP_STREAM macros are deprecated. Please use hls::stream<> from "hls_stream.h" instead. [-Wcpp]

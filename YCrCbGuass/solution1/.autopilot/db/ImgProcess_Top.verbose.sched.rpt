@@ -1,0 +1,220 @@
+
+
+================================================================
+== Vivado HLS Report for 'ImgProcess_Top'
+================================================================
+* Date:           Tue Mar 24 00:12:57 2020
+
+* Version:        2017.4 (Build 2086221 on Fri Dec 15 21:13:33 MST 2017)
+* Project:        YCrCbGuass
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     10.60|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +--------+--------+--------+--------+----------+
+    |     Latency     |     Interval    | Pipeline |
+    |   min  |   max  |   min  |   max  |   Type   |
+    +--------+--------+--------+--------+----------+
+    |  364914|  494709|  364797|  494592| dataflow |
+    +--------+--------+--------+--------+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 8
+* Pipeline : 0
+* Dataflow Pipeline: 1
+  DF-Pipeline-0: Size = 8, States = { 1 2 3 4 5 6 7 8 }
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / true
+3 --> 
+	4  / true
+4 --> 
+	5  / true
+5 --> 
+	6  / true
+6 --> 
+	7  / true
+7 --> 
+	8  / true
+8 --> 
+
+* FSM state operations: 
+
+ <State 1> : 0.00ns
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%src_mat_data_stream_s = alloca i8, align 1" [top.cpp:29]   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 1> <FIFO>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%src_mat_data_stream_1 = alloca i8, align 1" [top.cpp:29]   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 1> <FIFO>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%src_mat_data_stream_2 = alloca i8, align 1" [top.cpp:29]   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 1> <FIFO>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%dst_mat_data_stream_s = alloca i8, align 1" [top.cpp:30]   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 1> <FIFO>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%nor_mat_data_stream_s = alloca float, align 4" [top.cpp:31]   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 1> <FIFO>
+
+ <State 2> : 0.00ns
+ST_2 : Operation 14 [1/1] (0.00ns)   --->   "%cols_read = call i32 @_ssdm_op_Read.ap_stable.i32(i32 %cols)"
+ST_2 : Operation 15 [1/1] (0.00ns)   --->   "%rows_read = call i32 @_ssdm_op_Read.ap_stable.i32(i32 %rows)"
+ST_2 : Operation 16 [2/2] (0.00ns)   --->   "call void @AXIvideo2Mat(i32* %INPUT_STREAM_V_data_V, i4* %INPUT_STREAM_V_keep_V, i4* %INPUT_STREAM_V_strb_V, i1* %INPUT_STREAM_V_user_V, i1* %INPUT_STREAM_V_last_V, i1* %INPUT_STREAM_V_id_V, i1* %INPUT_STREAM_V_dest_V, i32 %rows_read, i32 %cols_read, i8* %src_mat_data_stream_s, i8* %src_mat_data_stream_1, i8* %src_mat_data_stream_2)"   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+ <State 3> : 0.00ns
+ST_3 : Operation 17 [1/2] (0.00ns)   --->   "call void @AXIvideo2Mat(i32* %INPUT_STREAM_V_data_V, i4* %INPUT_STREAM_V_keep_V, i4* %INPUT_STREAM_V_strb_V, i1* %INPUT_STREAM_V_user_V, i1* %INPUT_STREAM_V_last_V, i1* %INPUT_STREAM_V_id_V, i1* %INPUT_STREAM_V_dest_V, i32 %rows_read, i32 %cols_read, i8* %src_mat_data_stream_s, i8* %src_mat_data_stream_1, i8* %src_mat_data_stream_2)"   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+ <State 4> : 0.00ns
+ST_4 : Operation 18 [2/2] (0.00ns)   --->   "call void @YCrCb_GUASSIAN(i32 %rows_read, i32 %cols_read, i8* %src_mat_data_stream_s, i8* %src_mat_data_stream_1, i8* %src_mat_data_stream_2, i8* %dst_mat_data_stream_s, float* %nor_mat_data_stream_s, double* %threshold)"   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+ <State 5> : 0.00ns
+ST_5 : Operation 19 [1/2] (0.00ns)   --->   "call void @YCrCb_GUASSIAN(i32 %rows_read, i32 %cols_read, i8* %src_mat_data_stream_s, i8* %src_mat_data_stream_1, i8* %src_mat_data_stream_2, i8* %dst_mat_data_stream_s, float* %nor_mat_data_stream_s, double* %threshold)"   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+ <State 6> : 1.94ns
+ST_6 : Operation 20 [2/2] (1.93ns)   --->   "call void @Mat2AXIvideo.1(i32 %rows_read, i32 %cols_read, i8* %dst_mat_data_stream_s, i32* %OUTPUT_STREAM_V_data_V, i4* %OUTPUT_STREAM_V_keep_V, i4* %OUTPUT_STREAM_V_strb_V, i1* %OUTPUT_STREAM_V_user_V, i1* %OUTPUT_STREAM_V_last_V, i1* %OUTPUT_STREAM_V_id_V, i1* %OUTPUT_STREAM_V_dest_V)"   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_6 : Operation 21 [2/2] (1.93ns)   --->   "call void @Mat2AXIvideo(i32 %rows_read, i32 %cols_read, float* %nor_mat_data_stream_s, i32* %NOR_OUTPUT_STREAM_V_data_V, i4* %NOR_OUTPUT_STREAM_V_keep_V, i4* %NOR_OUTPUT_STREAM_V_strb_V, i1* %NOR_OUTPUT_STREAM_V_user_V, i1* %NOR_OUTPUT_STREAM_V_last_V, i1* %NOR_OUTPUT_STREAM_V_id_V, i1* %NOR_OUTPUT_STREAM_V_dest_V)"   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+ <State 7> : 0.00ns
+ST_7 : Operation 22 [1/2] (0.00ns)   --->   "call void @Mat2AXIvideo.1(i32 %rows_read, i32 %cols_read, i8* %dst_mat_data_stream_s, i32* %OUTPUT_STREAM_V_data_V, i4* %OUTPUT_STREAM_V_keep_V, i4* %OUTPUT_STREAM_V_strb_V, i1* %OUTPUT_STREAM_V_user_V, i1* %OUTPUT_STREAM_V_last_V, i1* %OUTPUT_STREAM_V_id_V, i1* %OUTPUT_STREAM_V_dest_V)"   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_7 : Operation 23 [1/2] (0.00ns)   --->   "call void @Mat2AXIvideo(i32 %rows_read, i32 %cols_read, float* %nor_mat_data_stream_s, i32* %NOR_OUTPUT_STREAM_V_data_V, i4* %NOR_OUTPUT_STREAM_V_keep_V, i4* %NOR_OUTPUT_STREAM_V_strb_V, i1* %NOR_OUTPUT_STREAM_V_user_V, i1* %NOR_OUTPUT_STREAM_V_last_V, i1* %NOR_OUTPUT_STREAM_V_id_V, i1* %NOR_OUTPUT_STREAM_V_dest_V)"   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+ <State 8> : 0.00ns
+ST_8 : Operation 24 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecDataflowPipeline(i32 -1, [1 x i8]* @p_str418) nounwind" [top.cpp:33]
+ST_8 : Operation 25 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %INPUT_STREAM_V_data_V), !map !657"
+ST_8 : Operation 26 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i4* %INPUT_STREAM_V_keep_V), !map !661"
+ST_8 : Operation 27 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i4* %INPUT_STREAM_V_strb_V), !map !665"
+ST_8 : Operation 28 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %INPUT_STREAM_V_user_V), !map !669"
+ST_8 : Operation 29 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %INPUT_STREAM_V_last_V), !map !673"
+ST_8 : Operation 30 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %INPUT_STREAM_V_id_V), !map !677"
+ST_8 : Operation 31 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %INPUT_STREAM_V_dest_V), !map !681"
+ST_8 : Operation 32 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %OUTPUT_STREAM_V_data_V), !map !685"
+ST_8 : Operation 33 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i4* %OUTPUT_STREAM_V_keep_V), !map !689"
+ST_8 : Operation 34 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i4* %OUTPUT_STREAM_V_strb_V), !map !693"
+ST_8 : Operation 35 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %OUTPUT_STREAM_V_user_V), !map !697"
+ST_8 : Operation 36 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %OUTPUT_STREAM_V_last_V), !map !701"
+ST_8 : Operation 37 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %OUTPUT_STREAM_V_id_V), !map !705"
+ST_8 : Operation 38 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %OUTPUT_STREAM_V_dest_V), !map !709"
+ST_8 : Operation 39 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %NOR_OUTPUT_STREAM_V_data_V), !map !713"
+ST_8 : Operation 40 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i4* %NOR_OUTPUT_STREAM_V_keep_V), !map !717"
+ST_8 : Operation 41 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i4* %NOR_OUTPUT_STREAM_V_strb_V), !map !721"
+ST_8 : Operation 42 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %NOR_OUTPUT_STREAM_V_user_V), !map !725"
+ST_8 : Operation 43 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %NOR_OUTPUT_STREAM_V_last_V), !map !729"
+ST_8 : Operation 44 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %NOR_OUTPUT_STREAM_V_id_V), !map !733"
+ST_8 : Operation 45 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %NOR_OUTPUT_STREAM_V_dest_V), !map !737"
+ST_8 : Operation 46 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32 %rows), !map !741"
+ST_8 : Operation 47 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32 %cols), !map !747"
+ST_8 : Operation 48 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(double* %threshold), !map !751"
+ST_8 : Operation 49 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([15 x i8]* @ImgProcess_Top_str) nounwind"
+ST_8 : Operation 50 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecChannel([25 x i8]* @src_mat_OC_data_stre_2, i32 1, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 1, i32 1, i8* %src_mat_data_stream_s, i8* %src_mat_data_stream_s)"
+ST_8 : Operation 51 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i8* %src_mat_data_stream_s, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_8 : Operation 52 [1/1] (0.00ns)   --->   "%empty_111 = call i32 (...)* @_ssdm_op_SpecChannel([25 x i8]* @src_mat_OC_data_stre_1, i32 1, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 1, i32 1, i8* %src_mat_data_stream_1, i8* %src_mat_data_stream_1)"
+ST_8 : Operation 53 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i8* %src_mat_data_stream_1, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_8 : Operation 54 [1/1] (0.00ns)   --->   "%empty_112 = call i32 (...)* @_ssdm_op_SpecChannel([25 x i8]* @src_mat_OC_data_stre, i32 1, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 1, i32 1, i8* %src_mat_data_stream_2, i8* %src_mat_data_stream_2)"
+ST_8 : Operation 55 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i8* %src_mat_data_stream_2, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_8 : Operation 56 [1/1] (0.00ns)   --->   "%empty_113 = call i32 (...)* @_ssdm_op_SpecChannel([25 x i8]* @dst_mat_OC_data_stre, i32 1, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 1, i32 1, i8* %dst_mat_data_stream_s, i8* %dst_mat_data_stream_s)"
+ST_8 : Operation 57 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i8* %dst_mat_data_stream_s, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_8 : Operation 58 [1/1] (0.00ns)   --->   "%empty_114 = call i32 (...)* @_ssdm_op_SpecChannel([25 x i8]* @nor_mat_OC_data_stre, i32 1, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 1, i32 1, float* %nor_mat_data_stream_s, float* %nor_mat_data_stream_s)"
+ST_8 : Operation 59 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(float* %nor_mat_data_stream_s, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_8 : Operation 60 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %INPUT_STREAM_V_data_V, i4* %INPUT_STREAM_V_keep_V, i4* %INPUT_STREAM_V_strb_V, i1* %INPUT_STREAM_V_user_V, i1* %INPUT_STREAM_V_last_V, i1* %INPUT_STREAM_V_id_V, i1* %INPUT_STREAM_V_dest_V, [5 x i8]* @p_str15, i32 1, i32 1, [5 x i8]* @p_str216, i32 0, i32 0, [13 x i8]* @p_str317, [1 x i8]* @p_str418, [1 x i8]* @p_str418, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str418, [1 x i8]* @p_str418) nounwind" [top.cpp:15]
+ST_8 : Operation 61 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %OUTPUT_STREAM_V_data_V, i4* %OUTPUT_STREAM_V_keep_V, i4* %OUTPUT_STREAM_V_strb_V, i1* %OUTPUT_STREAM_V_user_V, i1* %OUTPUT_STREAM_V_last_V, i1* %OUTPUT_STREAM_V_id_V, i1* %OUTPUT_STREAM_V_dest_V, [5 x i8]* @p_str15, i32 1, i32 1, [5 x i8]* @p_str216, i32 0, i32 0, [14 x i8]* @p_str519, [1 x i8]* @p_str418, [1 x i8]* @p_str418, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str418, [1 x i8]* @p_str418) nounwind" [top.cpp:16]
+ST_8 : Operation 62 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %NOR_OUTPUT_STREAM_V_data_V, i4* %NOR_OUTPUT_STREAM_V_keep_V, i4* %NOR_OUTPUT_STREAM_V_strb_V, i1* %NOR_OUTPUT_STREAM_V_user_V, i1* %NOR_OUTPUT_STREAM_V_last_V, i1* %NOR_OUTPUT_STREAM_V_id_V, i1* %NOR_OUTPUT_STREAM_V_dest_V, [5 x i8]* @p_str15, i32 1, i32 1, [5 x i8]* @p_str216, i32 0, i32 0, [18 x i8]* @p_str620, [1 x i8]* @p_str418, [1 x i8]* @p_str418, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str418, [1 x i8]* @p_str418) nounwind" [top.cpp:17]
+ST_8 : Operation 63 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32 %rows, [10 x i8]* @p_str721, i32 0, i32 0, [1 x i8]* @p_str418, i32 0, i32 0, [1 x i8]* @p_str418, [1 x i8]* @p_str418, [1 x i8]* @p_str418, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str418, [1 x i8]* @p_str418) nounwind" [top.cpp:24]
+ST_8 : Operation 64 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32 %cols, [10 x i8]* @p_str721, i32 0, i32 0, [1 x i8]* @p_str418, i32 0, i32 0, [1 x i8]* @p_str418, [1 x i8]* @p_str418, [1 x i8]* @p_str418, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str418, [1 x i8]* @p_str418) nounwind" [top.cpp:25]
+ST_8 : Operation 65 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(double* %threshold, [10 x i8]* @p_str721, i32 0, i32 0, [1 x i8]* @p_str418, i32 0, i32 0, [1 x i8]* @p_str418, [1 x i8]* @p_str418, [1 x i8]* @p_str418, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str418, [1 x i8]* @p_str418) nounwind" [top.cpp:26]
+ST_8 : Operation 66 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32 0, [11 x i8]* @p_str822, i32 0, i32 0, [1 x i8]* @p_str418, i32 0, i32 0, [1 x i8]* @p_str418, [1 x i8]* @p_str418, [1 x i8]* @p_str418, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str418, [1 x i8]* @p_str418) nounwind" [top.cpp:27]
+ST_8 : Operation 67 [1/1] (0.00ns)   --->   "ret void" [top.cpp:40]
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 0ns
+The critical path consists of the following:
+
+ <State 2>: 0ns
+The critical path consists of the following:
+
+ <State 3>: 0ns
+The critical path consists of the following:
+
+ <State 4>: 0ns
+The critical path consists of the following:
+
+ <State 5>: 0ns
+The critical path consists of the following:
+
+ <State 6>: 1.94ns
+The critical path consists of the following:
+	'call' operation to 'Mat2AXIvideo.1' [77]  (1.94 ns)
+
+ <State 7>: 0ns
+The critical path consists of the following:
+
+ <State 8>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

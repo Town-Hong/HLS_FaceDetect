@@ -1,0 +1,13 @@
+INFO: [COSIM-47] Using XSIM for RTL simulation.
+INFO: [COSIM-14] Instrumenting C test bench ...
+   Build using "D:/studyapp_new/VIVADO/vivado201704/Vivado/2017.4/msys/bin/g++.exe"
+   Compiling apatb_ImgProcess_Top.cpp
+   Compiling imgprocess.cpp_pre.cpp.tb.cpp
+   Compiling test.cpp_pre.cpp.tb.cpp
+   Compiling top.cpp_pre.cpp.tb.cpp
+   Generating cosim.tv.exe
+ERROR: [COSIM-317] C++ compile error.
+ERROR: [COSIM-321] EXE file generate failed.
+ERROR: [COSIM-321] EXE file generate failed.
+ERROR: [COSIM-331] Aborting co-simulation: C simulation failed, compilation errors.
+ERROR: [COSIM-4] *** C/RTL co-simulation finished: FAIL ***

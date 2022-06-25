@@ -1,0 +1,195 @@
+
+
+================================================================
+== Vivado HLS Report for 'YCrCb_GUASSIAN'
+================================================================
+* Date:           Tue Mar 24 00:13:44 2020
+
+* Version:        2017.4 (Build 2086221 on Fri Dec 15 21:13:33 MST 2017)
+* Project:        YCrCbGuass
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     10.60|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +--------+--------+--------+--------+----------+
+    |     Latency     |     Interval    | Pipeline |
+    |   min  |   max  |   min  |   max  |   Type   |
+    +--------+--------+--------+--------+----------+
+    |  364911|  494706|  364797|  494592| dataflow |
+    +--------+--------+--------+--------+----------+
+
+    + Detail: 
+        * Instance: 
+        +---------------------------+------------------------+--------+--------+--------+--------+----------+
+        |                           |                        |     Latency     |     Interval    | Pipeline |
+        |          Instance         |         Module         |   min  |   max  |   min  |   max  |   Type   |
+        +---------------------------+------------------------+--------+--------+--------+--------+----------+
+        |otsu_threshold_U0          |otsu_threshold          |  364796|  494591|  364796|  494591|   none   |
+        |YCrCb_GUASSIAN_Loop_1_U0   |YCrCb_GUASSIAN_Loop_1   |  345661|  345661|  345661|  345661|   none   |
+        |normalized_U0              |normalized              |  345653|  345653|  345654|  345654| dataflow |
+        |erode_dilate_U0            |erode_dilate            |  353786|  353786|  353782|  353782| dataflow |
+        |YCrCb_GUASSIAN_Loop_U0     |YCrCb_GUASSIAN_Loop_s   |  345604|  345604|  345604|  345604|   none   |
+        |MinMaxLoc_U0               |MinMaxLoc               |  348482|  348482|  348482|  348482|   none   |
+        |CvtColor_U0                |CvtColor                |      10|  351361|      10|  351361|   none   |
+        |Duplicate349_U0            |Duplicate349            |       1|  347761|       1|  347761|   none   |
+        |Duplicate_U0               |Duplicate               |       1|  347761|       1|  347761|   none   |
+        |Split_U0                   |Split                   |  347761|  347761|  347761|  347761|   none   |
+        |YCrCb_GUASSIAN_Block_2_U0  |YCrCb_GUASSIAN_Block_2  |       0|       0|       0|       0|   none   |
+        |YCrCb_GUASSIAN_Block_U0    |YCrCb_GUASSIAN_Block    |       0|       0|       0|       0|   none   |
+        +---------------------------+------------------------+--------+--------+--------+--------+----------+
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+-------+
+|       Name      | BRAM_18K| DSP48E|   FF   |  LUT  |
++-----------------+---------+-------+--------+-------+
+|DSP              |        -|      -|       -|      -|
+|Expression       |        -|      -|       0|     48|
+|FIFO             |        0|      -|     100|    756|
+|Instance         |       10|    158|   31765|  38988|
+|Memory           |        -|      -|       -|      -|
+|Multiplexer      |        -|      -|       -|      -|
+|Register         |        -|      -|       -|      -|
++-----------------+---------+-------+--------+-------+
+|Total            |       10|    158|   31865|  39792|
++-----------------+---------+-------+--------+-------+
+|Available        |      280|    220|  106400|  53200|
++-----------------+---------+-------+--------+-------+
+|Utilization (%)  |        3|     71|      29|     74|
++-----------------+---------+-------+--------+-------+
+
++ Detail: 
+    * Instance: 
+    +---------------------------+------------------------+---------+-------+-------+-------+
+    |          Instance         |         Module         | BRAM_18K| DSP48E|   FF  |  LUT  |
+    +---------------------------+------------------------+---------+-------+-------+-------+
+    |CvtColor_U0                |CvtColor                |        0|      5|    391|    699|
+    |Duplicate_U0               |Duplicate               |        0|      0|     59|    222|
+    |Duplicate349_U0            |Duplicate349            |        0|      0|     59|    222|
+    |MinMaxLoc_U0               |MinMaxLoc               |        0|      0|    464|    786|
+    |Split_U0                   |Split                   |        0|      0|     46|    231|
+    |YCrCb_GUASSIAN_Block_U0    |YCrCb_GUASSIAN_Block    |        0|      0|     66|     35|
+    |YCrCb_GUASSIAN_Block_2_U0  |YCrCb_GUASSIAN_Block_2  |        0|      0|      2|     53|
+    |YCrCb_GUASSIAN_Loop_1_U0   |YCrCb_GUASSIAN_Loop_1   |        4|    118|   8111|  14210|
+    |YCrCb_GUASSIAN_Loop_U0     |YCrCb_GUASSIAN_Loop_s   |        0|      0|    584|    974|
+    |erode_dilate_U0            |erode_dilate            |        6|      0|    954|   1741|
+    |normalized_U0              |normalized              |        0|     14|   5060|   6991|
+    |otsu_threshold_U0          |otsu_threshold          |        0|     21|  15969|  12824|
+    +---------------------------+------------------------+---------+-------+-------+-------+
+    |Total                      |                        |       10|    158|  31765|  38988|
+    +---------------------------+------------------------+---------+-------+-------+-------+
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    +--------------------------+---------+---+----+------+-----+---------+
+    |           Name           | BRAM_18K| FF| LUT| Depth| Bits| Size:D*B|
+    +--------------------------+---------+---+----+------+-----+---------+
+    |Cb_Img_data_stream_0_U    |        0|  5|  20|     1|    8|        8|
+    |Cr_Img_data_stream_0_U    |        0|  5|  20|     1|    8|        8|
+    |Sim_cols_V_c_i_U          |        0|  5|  22|     3|   10|       30|
+    |Sim_copy1_data_strea_U    |        0|  5|  44|     1|   32|       32|
+    |Sim_copy2_data_strea_U    |        0|  5|  44|     1|   32|       32|
+    |Sim_data_stream_0_V_U     |        0|  5|  44|     1|   32|       32|
+    |Sim_rows_V_c_i_U          |        0|  5|  23|     3|   11|       33|
+    |YCrCb_IMG_data_strea_1_U  |        0|  5|  20|     1|    8|        8|
+    |YCrCb_IMG_data_strea_2_U  |        0|  5|  20|     1|    8|        8|
+    |YCrCb_IMG_data_strea_U    |        0|  5|  20|     1|    8|        8|
+    |gray_data_stream_0_s_U    |        0|  5|  20|     1|    8|        8|
+    |max_c_i_U                 |        0|  5|  76|     1|   64|       64|
+    |min_c_i_U                 |        0|  5|  76|     1|   64|       64|
+    |nor_copy1_cols_V_c_i_U    |        0|  5|  23|     6|   10|       60|
+    |nor_copy1_data_strea_U    |        0|  5|  44|     1|   32|       32|
+    |nor_copy1_rows_V_c_i_U    |        0|  5|  24|     6|   11|       66|
+    |nor_copy2_data_strea_U    |        0|  5|  44|     1|   32|       32|
+    |origin_data_stream_0_U    |        0|  5|  20|     1|    8|        8|
+    |tmp3_c5_i_U               |        0|  5|  76|     1|   64|       64|
+    |tmp3_c_i_U                |        0|  5|  76|     1|   64|       64|
+    +--------------------------+---------+---+----+------+-----+---------+
+    |Total                     |        0|100| 756|    34|  514|      661|
+    +--------------------------+---------+---+----+------+-----+---------+
+
+    * Expression: 
+    +------------------------------+----------+-------+---+----+------------+------------+
+    |         Variable Name        | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +------------------------------+----------+-------+---+----+------------+------------+
+    |CvtColor_U0_ap_start          |    and   |      0|  0|   8|           1|           0|
+    |Duplicate349_U0_start_full_n  |    and   |      0|  0|   8|           1|           1|
+    |ap_idle                       |    and   |      0|  0|   8|           1|           1|
+    |ap_sync_continue              |    and   |      0|  0|   8|           1|           1|
+    |ap_sync_done                  |    and   |      0|  0|   8|           1|           1|
+    |normalized_U0_start_full_n    |    and   |      0|  0|   8|           1|           1|
+    +------------------------------+----------+-------+---+----+------------+------------+
+    |Total                         |          |      0|  0|  48|           6|           5|
+    +------------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    N/A
+
+    * Register: 
+    N/A
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-----------------------------+-----+-----+------------+---------------------+--------------+
+|          RTL Ports          | Dir | Bits|  Protocol  |    Source Object    |    C Type    |
++-----------------------------+-----+-----+------------+---------------------+--------------+
+|rows                         |  in |   32|  ap_stable |         rows        |    scalar    |
+|rows_ap_vld                  |  in |    1|  ap_stable |         rows        |    scalar    |
+|cols                         |  in |   32|  ap_stable |         cols        |    scalar    |
+|cols_ap_vld                  |  in |    1|  ap_stable |         cols        |    scalar    |
+|src_data_stream_0_V_dout     |  in |    8|   ap_fifo  | src_data_stream_0_V |    pointer   |
+|src_data_stream_0_V_empty_n  |  in |    1|   ap_fifo  | src_data_stream_0_V |    pointer   |
+|src_data_stream_0_V_read     | out |    1|   ap_fifo  | src_data_stream_0_V |    pointer   |
+|src_data_stream_1_V_dout     |  in |    8|   ap_fifo  | src_data_stream_1_V |    pointer   |
+|src_data_stream_1_V_empty_n  |  in |    1|   ap_fifo  | src_data_stream_1_V |    pointer   |
+|src_data_stream_1_V_read     | out |    1|   ap_fifo  | src_data_stream_1_V |    pointer   |
+|src_data_stream_2_V_dout     |  in |    8|   ap_fifo  | src_data_stream_2_V |    pointer   |
+|src_data_stream_2_V_empty_n  |  in |    1|   ap_fifo  | src_data_stream_2_V |    pointer   |
+|src_data_stream_2_V_read     | out |    1|   ap_fifo  | src_data_stream_2_V |    pointer   |
+|res_data_stream_V_din        | out |    8|   ap_fifo  |  res_data_stream_V  |    pointer   |
+|res_data_stream_V_full_n     |  in |    1|   ap_fifo  |  res_data_stream_V  |    pointer   |
+|res_data_stream_V_write      | out |    1|   ap_fifo  |  res_data_stream_V  |    pointer   |
+|nor_data_stream_V_din        | out |   32|   ap_fifo  |  nor_data_stream_V  |    pointer   |
+|nor_data_stream_V_full_n     |  in |    1|   ap_fifo  |  nor_data_stream_V  |    pointer   |
+|nor_data_stream_V_write      | out |    1|   ap_fifo  |  nor_data_stream_V  |    pointer   |
+|threshold                    | out |   64|   ap_vld   |      threshold      |    pointer   |
+|threshold_ap_vld             | out |    1|   ap_vld   |      threshold      |    pointer   |
+|ap_clk                       |  in |    1| ap_ctrl_hs |    YCrCb_GUASSIAN   | return value |
+|ap_rst                       |  in |    1| ap_ctrl_hs |    YCrCb_GUASSIAN   | return value |
+|ap_start                     |  in |    1| ap_ctrl_hs |    YCrCb_GUASSIAN   | return value |
+|ap_done                      | out |    1| ap_ctrl_hs |    YCrCb_GUASSIAN   | return value |
+|ap_ready                     | out |    1| ap_ctrl_hs |    YCrCb_GUASSIAN   | return value |
+|ap_idle                      | out |    1| ap_ctrl_hs |    YCrCb_GUASSIAN   | return value |
+|ap_continue                  |  in |    1| ap_ctrl_hs |    YCrCb_GUASSIAN   | return value |
++-----------------------------+-----+-----+------------+---------------------+--------------+
+

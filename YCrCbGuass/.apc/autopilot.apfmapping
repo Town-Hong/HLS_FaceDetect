@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="imgprocess.cpp" path="C:\Users\hongzc\Desktop\hls_YCrCbGuass\imgprocess.cpp"/>
+    <originFiles name="imgprocess.h" path="C:\Users\hongzc\Desktop\hls_YCrCbGuass\imgprocess.h"/>
+    <originFiles name="top.cpp" path="C:\Users\hongzc\Desktop\hls_YCrCbGuass\top.cpp"/>
+    <originFiles name="top.h" path="C:\Users\hongzc\Desktop\hls_YCrCbGuass\top.h"/>
+  </source>
+  <testbench>
+    <originFiles name="ycy.png" path="C:\Users\hongzc\Desktop\hlstest\ycy.png"/>
+    <originFiles name="tfboys.jpg" path="C:\Users\hongzc\Desktop\hls_YCrCbGuass\tfboys.jpg"/>
+    <originFiles name="test1.jpg" path="C:\Users\hongzc\Desktop\hls_YCrCbGuass\test1.jpg"/>
+    <originFiles name="test.cpp" path="C:\Users\hongzc\Desktop\hls_YCrCbGuass\test.cpp"/>
+    <originFiles name="self.jpg" path="C:\Users\hongzc\Desktop\hls_YCrCbGuass\self.jpg"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>

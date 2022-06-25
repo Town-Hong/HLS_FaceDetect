@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Tue Mar 24 00:17:56 2020
+# Process ID: 7896
+# Current directory: C:/Users/hongzc/Desktop/hls_YCrCbGuass/YCrCbGuass/solution1/impl/verilog
+# Command line: vivado.exe -notrace -mode batch -source run_vivadosyn.tcl
+# Log file: C:/Users/hongzc/Desktop/hls_YCrCbGuass/YCrCbGuass/solution1/impl/verilog/vivado.log
+# Journal file: C:/Users/hongzc/Desktop/hls_YCrCbGuass/YCrCbGuass/solution1/impl/verilog\vivado.jou
+#-----------------------------------------------------------
+source run_vivadosyn.tcl -notrace

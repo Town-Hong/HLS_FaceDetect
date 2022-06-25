@@ -1,0 +1,333 @@
+
+
+================================================================
+== Vivado HLS Report for 'YCrCb_GUASSIAN'
+================================================================
+* Date:           Tue Mar 24 00:12:49 2020
+
+* Version:        2017.4 (Build 2086221 on Fri Dec 15 21:13:33 MST 2017)
+* Project:        YCrCbGuass
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     10.60|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +--------+--------+--------+--------+----------+
+    |     Latency     |     Interval    | Pipeline |
+    |   min  |   max  |   min  |   max  |   Type   |
+    +--------+--------+--------+--------+----------+
+    |  364911|  494706|  364797|  494592| dataflow |
+    +--------+--------+--------+--------+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 18
+* Pipeline : 0
+* Dataflow Pipeline: 1
+  DF-Pipeline-0: Size = 18, States = { 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 }
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / true
+3 --> 
+	4  / true
+4 --> 
+	5  / true
+5 --> 
+	6  / true
+6 --> 
+	7  / true
+7 --> 
+	8  / true
+8 --> 
+	9  / true
+9 --> 
+	10  / true
+10 --> 
+	11  / true
+11 --> 
+	12  / true
+12 --> 
+	13  / true
+13 --> 
+	14  / true
+14 --> 
+	15  / true
+15 --> 
+	16  / true
+16 --> 
+	17  / true
+17 --> 
+	18  / true
+18 --> 
+
+* FSM state operations: 
+
+ <State 1> : 0.00ns
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%cols_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %cols)"
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "%rows_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %rows)"
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%tmp3_c5_i = alloca double, align 8" [imgprocess.cpp:72->imgprocess.cpp:9->top.cpp:36]   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 1> <FIFO>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%tmp3_c_i = alloca double, align 8" [imgprocess.cpp:72->imgprocess.cpp:9->top.cpp:36]   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 1> <FIFO>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%max_c_i = alloca double, align 8"   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 1> <FIFO>
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "%min_c_i = alloca double, align 8"   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 1> <FIFO>
+ST_1 : Operation 25 [1/1] (0.00ns)   --->   "%Sim_cols_V_c_i = alloca i10, align 2"   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 1> <FIFO>
+ST_1 : Operation 26 [1/1] (0.00ns)   --->   "%Sim_rows_V_c_i = alloca i11, align 2"   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 1> <FIFO>
+ST_1 : Operation 27 [1/1] (0.00ns)   --->   "%nor_copy1_cols_V_c_i = alloca i10, align 2"   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 1> <FIFO>
+ST_1 : Operation 28 [1/1] (0.00ns)   --->   "%nor_copy1_rows_V_c_i = alloca i11, align 2"   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 1> <FIFO>
+ST_1 : Operation 29 [1/1] (0.00ns)   --->   "%nor_copy1_data_strea = alloca float, align 4" [imgprocess.cpp:19->imgprocess.cpp:9->top.cpp:36]   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 1> <FIFO>
+ST_1 : Operation 30 [1/1] (0.00ns)   --->   "%nor_copy2_data_strea = alloca float, align 4" [imgprocess.cpp:20->imgprocess.cpp:9->top.cpp:36]   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 1> <FIFO>
+ST_1 : Operation 31 [1/1] (0.00ns)   --->   "%Sim_data_stream_0_V = alloca float, align 4" [imgprocess.cpp:22->imgprocess.cpp:9->top.cpp:36]   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 1> <FIFO>
+ST_1 : Operation 32 [1/1] (0.00ns)   --->   "%Sim_copy1_data_strea = alloca float, align 4" [imgprocess.cpp:23->imgprocess.cpp:9->top.cpp:36]   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 1> <FIFO>
+ST_1 : Operation 33 [1/1] (0.00ns)   --->   "%Sim_copy2_data_strea = alloca float, align 4" [imgprocess.cpp:24->imgprocess.cpp:9->top.cpp:36]   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 1> <FIFO>
+ST_1 : Operation 34 [1/1] (0.00ns)   --->   "%YCrCb_IMG_data_strea = alloca i8, align 1" [imgprocess.cpp:26->imgprocess.cpp:9->top.cpp:36]   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 1> <FIFO>
+ST_1 : Operation 35 [1/1] (0.00ns)   --->   "%YCrCb_IMG_data_strea_1 = alloca i8, align 1" [imgprocess.cpp:26->imgprocess.cpp:9->top.cpp:36]   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 1> <FIFO>
+ST_1 : Operation 36 [1/1] (0.00ns)   --->   "%YCrCb_IMG_data_strea_2 = alloca i8, align 1" [imgprocess.cpp:26->imgprocess.cpp:9->top.cpp:36]   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 1> <FIFO>
+ST_1 : Operation 37 [1/1] (0.00ns)   --->   "%Cr_Img_data_stream_0 = alloca i8, align 1" [imgprocess.cpp:27->imgprocess.cpp:9->top.cpp:36]   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 1> <FIFO>
+ST_1 : Operation 38 [1/1] (0.00ns)   --->   "%Cb_Img_data_stream_0 = alloca i8, align 1" [imgprocess.cpp:27->imgprocess.cpp:9->top.cpp:36]   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 1> <FIFO>
+ST_1 : Operation 39 [1/1] (0.00ns)   --->   "%Y_Img_data_stream_0 = alloca i8, align 1" [imgprocess.cpp:27->imgprocess.cpp:9->top.cpp:36]
+ST_1 : Operation 40 [1/1] (0.00ns)   --->   "%gray_data_stream_0_s = alloca i8, align 1" [imgprocess.cpp:28->imgprocess.cpp:9->top.cpp:36]   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 1> <FIFO>
+ST_1 : Operation 41 [1/1] (0.00ns)   --->   "%origin_data_stream_0 = alloca i8, align 1" [imgprocess.cpp:30->imgprocess.cpp:9->top.cpp:36]   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 1> <FIFO>
+ST_1 : Operation 42 [2/2] (0.00ns)   --->   "call void @CvtColor(i32 %rows_read, i32 %cols_read, i8* %src_data_stream_0_V, i8* %src_data_stream_1_V, i8* %src_data_stream_2_V, i8* %YCrCb_IMG_data_strea, i8* %YCrCb_IMG_data_strea_1, i8* %YCrCb_IMG_data_strea_2)"   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+ <State 2> : 0.00ns
+ST_2 : Operation 43 [1/2] (0.00ns)   --->   "call void @CvtColor(i32 %rows_read, i32 %cols_read, i8* %src_data_stream_0_V, i8* %src_data_stream_1_V, i8* %src_data_stream_2_V, i8* %YCrCb_IMG_data_strea, i8* %YCrCb_IMG_data_strea_1, i8* %YCrCb_IMG_data_strea_2)"   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+ <State 3> : 0.00ns
+ST_3 : Operation 44 [2/2] (0.00ns)   --->   "call fastcc void @Split(i8* %YCrCb_IMG_data_strea, i8* %YCrCb_IMG_data_strea_1, i8* %YCrCb_IMG_data_strea_2, i8* %Y_Img_data_stream_0, i8* %Cr_Img_data_stream_0, i8* %Cb_Img_data_stream_0)" [imgprocess.cpp:35->imgprocess.cpp:9->top.cpp:36]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+ <State 4> : 3.63ns
+ST_4 : Operation 45 [1/2] (3.63ns)   --->   "call fastcc void @Split(i8* %YCrCb_IMG_data_strea, i8* %YCrCb_IMG_data_strea_1, i8* %YCrCb_IMG_data_strea_2, i8* %Y_Img_data_stream_0, i8* %Cr_Img_data_stream_0, i8* %Cb_Img_data_stream_0)" [imgprocess.cpp:35->imgprocess.cpp:9->top.cpp:36]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+ <State 5> : 0.00ns
+ST_5 : Operation 46 [2/2] (0.00ns)   --->   "call fastcc void @YCrCb_GUASSIAN_Loop_.1(i8* %Cr_Img_data_stream_0, i8* %Cb_Img_data_stream_0, float* %Sim_data_stream_0_V)"   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+ <State 6> : 0.00ns
+ST_6 : Operation 47 [1/1] (0.00ns)   --->   "call fastcc void @YCrCb_GUASSIAN_Block.2(i11* %nor_copy1_rows_V_c_i, i10* %nor_copy1_cols_V_c_i, i11* %Sim_rows_V_c_i, i10* %Sim_cols_V_c_i)"   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_6 : Operation 48 [1/2] (0.00ns)   --->   "call fastcc void @YCrCb_GUASSIAN_Loop_.1(i8* %Cr_Img_data_stream_0, i8* %Cb_Img_data_stream_0, float* %Sim_data_stream_0_V)"   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+ <State 7> : 0.00ns
+ST_7 : Operation 49 [2/2] (0.00ns)   --->   "call fastcc void @Duplicate349(i11* nocapture %Sim_rows_V_c_i, i10* nocapture %Sim_cols_V_c_i, float* %Sim_data_stream_0_V, float* %Sim_copy1_data_strea, float* %Sim_copy2_data_strea)" [imgprocess.cpp:63->imgprocess.cpp:9->top.cpp:36]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+ <State 8> : 0.00ns
+ST_8 : Operation 50 [1/2] (0.00ns)   --->   "call fastcc void @Duplicate349(i11* nocapture %Sim_rows_V_c_i, i10* nocapture %Sim_cols_V_c_i, float* %Sim_data_stream_0_V, float* %Sim_copy1_data_strea, float* %Sim_copy2_data_strea)" [imgprocess.cpp:63->imgprocess.cpp:9->top.cpp:36]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+ <State 9> : 0.00ns
+ST_9 : Operation 51 [2/2] (0.00ns)   --->   "call fastcc void @MinMaxLoc(float* %Sim_copy1_data_strea, double* %min_c_i, double* %max_c_i)" [imgprocess.cpp:66->imgprocess.cpp:9->top.cpp:36]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+ <State 10> : 0.00ns
+ST_10 : Operation 52 [1/2] (0.00ns)   --->   "call fastcc void @MinMaxLoc(float* %Sim_copy1_data_strea, double* %min_c_i, double* %max_c_i)" [imgprocess.cpp:66->imgprocess.cpp:9->top.cpp:36]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+ <State 11> : 0.00ns
+ST_11 : Operation 53 [2/2] (0.00ns)   --->   "call fastcc void @normalized(float* %Sim_copy2_data_strea, float* %nor_copy1_data_strea, i8* %gray_data_stream_0_s, double* nocapture %max_c_i, double* nocapture %min_c_i)"   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+ <State 12> : 0.00ns
+ST_12 : Operation 54 [1/2] (0.00ns)   --->   "call fastcc void @normalized(float* %Sim_copy2_data_strea, float* %nor_copy1_data_strea, i8* %gray_data_stream_0_s, double* nocapture %max_c_i, double* nocapture %min_c_i)"   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+ <State 13> : 0.00ns
+ST_13 : Operation 55 [2/2] (0.00ns)   --->   "call fastcc void @Duplicate(i11* nocapture %nor_copy1_rows_V_c_i, i10* nocapture %nor_copy1_cols_V_c_i, float* %nor_copy1_data_strea, float* %nor_data_stream_V, float* %nor_copy2_data_strea)" [imgprocess.cpp:71->imgprocess.cpp:9->top.cpp:36]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_13 : Operation 56 [2/2] (0.00ns)   --->   "call fastcc void @otsu_threshold(i8* %gray_data_stream_0_s, double* %tmp3_c_i, double* %tmp3_c5_i)" [imgprocess.cpp:72->imgprocess.cpp:9->top.cpp:36]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+ <State 14> : 0.00ns
+ST_14 : Operation 57 [1/2] (0.00ns)   --->   "call fastcc void @Duplicate(i11* nocapture %nor_copy1_rows_V_c_i, i10* nocapture %nor_copy1_cols_V_c_i, float* %nor_copy1_data_strea, float* %nor_data_stream_V, float* %nor_copy2_data_strea)" [imgprocess.cpp:71->imgprocess.cpp:9->top.cpp:36]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_14 : Operation 58 [1/2] (0.00ns)   --->   "call fastcc void @otsu_threshold(i8* %gray_data_stream_0_s, double* %tmp3_c_i, double* %tmp3_c5_i)" [imgprocess.cpp:72->imgprocess.cpp:9->top.cpp:36]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+ <State 15> : 0.00ns
+ST_15 : Operation 59 [2/2] (0.00ns)   --->   "call fastcc void @YCrCb_GUASSIAN_Loop_(float* %nor_copy2_data_strea, double* nocapture %tmp3_c5_i, i8* %origin_data_stream_0)" [imgprocess.cpp:72->imgprocess.cpp:9->top.cpp:36]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+ <State 16> : 0.00ns
+ST_16 : Operation 60 [1/2] (0.00ns)   --->   "call fastcc void @YCrCb_GUASSIAN_Loop_(float* %nor_copy2_data_strea, double* nocapture %tmp3_c5_i, i8* %origin_data_stream_0)" [imgprocess.cpp:72->imgprocess.cpp:9->top.cpp:36]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+ <State 17> : 0.00ns
+ST_17 : Operation 61 [2/2] (0.00ns)   --->   "call fastcc void @erode_dilate(i8* %origin_data_stream_0, i8* %res_data_stream_V)" [imgprocess.cpp:97->imgprocess.cpp:9->top.cpp:36]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+ <State 18> : 0.00ns
+ST_18 : Operation 62 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(float* %nor_data_stream_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_18 : Operation 63 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i8* %res_data_stream_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_18 : Operation 64 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i8* %src_data_stream_2_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_18 : Operation 65 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i8* %src_data_stream_1_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_18 : Operation 66 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i8* %src_data_stream_0_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_18 : Operation 67 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecDataflowPipeline(i32 -1, [1 x i8]* @p_str) nounwind" [imgprocess.cpp:32->imgprocess.cpp:9->top.cpp:36]
+ST_18 : Operation 68 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecChannel([27 x i8]* @nor_copy1_OC_data_st, i32 1, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 1, i32 1, float* %nor_copy1_data_strea, float* %nor_copy1_data_strea)"
+ST_18 : Operation 69 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(float* %nor_copy1_data_strea, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_18 : Operation 70 [1/1] (0.00ns)   --->   "%empty_79 = call i32 (...)* @_ssdm_op_SpecChannel([27 x i8]* @nor_copy2_OC_data_st, i32 1, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 1, i32 1, float* %nor_copy2_data_strea, float* %nor_copy2_data_strea)"
+ST_18 : Operation 71 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(float* %nor_copy2_data_strea, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_18 : Operation 72 [1/1] (0.00ns)   --->   "%empty_80 = call i32 (...)* @_ssdm_op_SpecChannel([21 x i8]* @Sim_OC_data_stream_L, i32 1, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 1, i32 1, float* %Sim_data_stream_0_V, float* %Sim_data_stream_0_V)"
+ST_18 : Operation 73 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(float* %Sim_data_stream_0_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_18 : Operation 74 [1/1] (0.00ns)   --->   "%empty_81 = call i32 (...)* @_ssdm_op_SpecChannel([27 x i8]* @Sim_copy1_OC_data_st, i32 1, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 1, i32 1, float* %Sim_copy1_data_strea, float* %Sim_copy1_data_strea)"
+ST_18 : Operation 75 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(float* %Sim_copy1_data_strea, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_18 : Operation 76 [1/1] (0.00ns)   --->   "%empty_82 = call i32 (...)* @_ssdm_op_SpecChannel([27 x i8]* @Sim_copy2_OC_data_st, i32 1, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 1, i32 1, float* %Sim_copy2_data_strea, float* %Sim_copy2_data_strea)"
+ST_18 : Operation 77 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(float* %Sim_copy2_data_strea, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_18 : Operation 78 [1/1] (0.00ns)   --->   "%empty_83 = call i32 (...)* @_ssdm_op_SpecChannel([27 x i8]* @YCrCb_IMG_OC_data_st_2, i32 1, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 1, i32 1, i8* %YCrCb_IMG_data_strea, i8* %YCrCb_IMG_data_strea)"
+ST_18 : Operation 79 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i8* %YCrCb_IMG_data_strea, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_18 : Operation 80 [1/1] (0.00ns)   --->   "%empty_84 = call i32 (...)* @_ssdm_op_SpecChannel([27 x i8]* @YCrCb_IMG_OC_data_st_1, i32 1, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 1, i32 1, i8* %YCrCb_IMG_data_strea_1, i8* %YCrCb_IMG_data_strea_1)"
+ST_18 : Operation 81 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i8* %YCrCb_IMG_data_strea_1, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_18 : Operation 82 [1/1] (0.00ns)   --->   "%empty_85 = call i32 (...)* @_ssdm_op_SpecChannel([27 x i8]* @YCrCb_IMG_OC_data_st, i32 1, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 1, i32 1, i8* %YCrCb_IMG_data_strea_2, i8* %YCrCb_IMG_data_strea_2)"
+ST_18 : Operation 83 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i8* %YCrCb_IMG_data_strea_2, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_18 : Operation 84 [1/1] (0.00ns)   --->   "%empty_86 = call i32 (...)* @_ssdm_op_SpecChannel([24 x i8]* @Cr_Img_OC_data_strea, i32 1, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 1, i32 1, i8* %Cr_Img_data_stream_0, i8* %Cr_Img_data_stream_0)"
+ST_18 : Operation 85 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i8* %Cr_Img_data_stream_0, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_18 : Operation 86 [1/1] (0.00ns)   --->   "%empty_87 = call i32 (...)* @_ssdm_op_SpecChannel([24 x i8]* @Cb_Img_OC_data_strea, i32 1, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 1, i32 1, i8* %Cb_Img_data_stream_0, i8* %Cb_Img_data_stream_0)"
+ST_18 : Operation 87 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i8* %Cb_Img_data_stream_0, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_18 : Operation 88 [1/1] (0.00ns)   --->   "%empty_88 = call i32 (...)* @_ssdm_op_SpecChannel([22 x i8]* @gray_OC_data_stream_s, i32 1, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 1, i32 1, i8* %gray_data_stream_0_s, i8* %gray_data_stream_0_s)"
+ST_18 : Operation 89 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i8* %gray_data_stream_0_s, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_18 : Operation 90 [1/1] (0.00ns)   --->   "%empty_89 = call i32 (...)* @_ssdm_op_SpecChannel([24 x i8]* @origin_OC_data_strea, i32 1, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 1, i32 1, i8* %origin_data_stream_0, i8* %origin_data_stream_0)"
+ST_18 : Operation 91 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i8* %origin_data_stream_0, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_18 : Operation 92 [1/1] (0.00ns)   --->   "%empty_90 = call i32 (...)* @_ssdm_op_SpecChannel([19 x i8]* @nor_copy1_OC_rows_OC, i32 1, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 6, i32 0, i11* %nor_copy1_rows_V_c_i, i11* %nor_copy1_rows_V_c_i)"
+ST_18 : Operation 93 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i11* %nor_copy1_rows_V_c_i, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_18 : Operation 94 [1/1] (0.00ns)   --->   "%empty_91 = call i32 (...)* @_ssdm_op_SpecChannel([19 x i8]* @nor_copy1_OC_cols_OC, i32 1, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 6, i32 0, i10* %nor_copy1_cols_V_c_i, i10* %nor_copy1_cols_V_c_i)"
+ST_18 : Operation 95 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i10* %nor_copy1_cols_V_c_i, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_18 : Operation 96 [1/1] (0.00ns)   --->   "%empty_92 = call i32 (...)* @_ssdm_op_SpecChannel([13 x i8]* @Sim_OC_rows_OC_V_c_s, i32 1, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 3, i32 0, i11* %Sim_rows_V_c_i, i11* %Sim_rows_V_c_i)"
+ST_18 : Operation 97 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i11* %Sim_rows_V_c_i, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_18 : Operation 98 [1/1] (0.00ns)   --->   "%empty_93 = call i32 (...)* @_ssdm_op_SpecChannel([13 x i8]* @Sim_OC_cols_OC_V_c_s, i32 1, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 3, i32 0, i10* %Sim_cols_V_c_i, i10* %Sim_cols_V_c_i)"
+ST_18 : Operation 99 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i10* %Sim_cols_V_c_i, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_18 : Operation 100 [1/1] (0.00ns)   --->   "%empty_94 = call i32 (...)* @_ssdm_op_SpecChannel([6 x i8]* @min_c_str, i32 1, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 1, i32 0, double* %min_c_i, double* %min_c_i)"
+ST_18 : Operation 101 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(double* %min_c_i, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_18 : Operation 102 [1/1] (0.00ns)   --->   "%empty_95 = call i32 (...)* @_ssdm_op_SpecChannel([6 x i8]* @max_c_str, i32 1, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 1, i32 0, double* %max_c_i, double* %max_c_i)"
+ST_18 : Operation 103 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(double* %max_c_i, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_18 : Operation 104 [1/1] (0.00ns)   --->   "%empty_96 = call i32 (...)* @_ssdm_op_SpecChannel([7 x i8]* @tmp3_c_str, i32 1, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 1, i32 0, double* %tmp3_c_i, double* %tmp3_c_i)" [imgprocess.cpp:72->imgprocess.cpp:9->top.cpp:36]
+ST_18 : Operation 105 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(double* %tmp3_c_i, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)" [imgprocess.cpp:72->imgprocess.cpp:9->top.cpp:36]
+ST_18 : Operation 106 [1/1] (0.00ns)   --->   "%empty_97 = call i32 (...)* @_ssdm_op_SpecChannel([8 x i8]* @tmp3_c5_str, i32 1, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 1, i32 0, double* %tmp3_c5_i, double* %tmp3_c5_i)" [imgprocess.cpp:72->imgprocess.cpp:9->top.cpp:36]
+ST_18 : Operation 107 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(double* %tmp3_c5_i, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)" [imgprocess.cpp:72->imgprocess.cpp:9->top.cpp:36]
+ST_18 : Operation 108 [1/1] (0.00ns)   --->   "call fastcc void @YCrCb_GUASSIAN_Block(double* nocapture %tmp3_c_i, double* %threshold)" [imgprocess.cpp:72->imgprocess.cpp:9->top.cpp:36]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_18 : Operation 109 [1/2] (0.00ns)   --->   "call fastcc void @erode_dilate(i8* %origin_data_stream_0, i8* %res_data_stream_V)" [imgprocess.cpp:97->imgprocess.cpp:9->top.cpp:36]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_18 : Operation 110 [1/1] (0.00ns)   --->   "ret void"
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 0ns
+The critical path consists of the following:
+
+ <State 2>: 0ns
+The critical path consists of the following:
+
+ <State 3>: 0ns
+The critical path consists of the following:
+
+ <State 4>: 3.63ns
+The critical path consists of the following:
+	'call' operation (imgprocess.cpp:35->imgprocess.cpp:9->top.cpp:36) to 'Split' [72]  (3.63 ns)
+
+ <State 5>: 0ns
+The critical path consists of the following:
+
+ <State 6>: 0ns
+The critical path consists of the following:
+
+ <State 7>: 0ns
+The critical path consists of the following:
+
+ <State 8>: 0ns
+The critical path consists of the following:
+
+ <State 9>: 0ns
+The critical path consists of the following:
+
+ <State 10>: 0ns
+The critical path consists of the following:
+
+ <State 11>: 0ns
+The critical path consists of the following:
+
+ <State 12>: 0ns
+The critical path consists of the following:
+
+ <State 13>: 0ns
+The critical path consists of the following:
+
+ <State 14>: 0ns
+The critical path consists of the following:
+
+ <State 15>: 0ns
+The critical path consists of the following:
+
+ <State 16>: 0ns
+The critical path consists of the following:
+
+ <State 17>: 0ns
+The critical path consists of the following:
+
+ <State 18>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

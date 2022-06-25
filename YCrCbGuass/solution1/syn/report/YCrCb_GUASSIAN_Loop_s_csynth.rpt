@@ -1,0 +1,189 @@
+
+
+================================================================
+== Vivado HLS Report for 'YCrCb_GUASSIAN_Loop_s'
+================================================================
+* Date:           Tue Mar 24 00:13:36 2020
+
+* Version:        2017.4 (Build 2086221 on Fri Dec 15 21:13:33 MST 2017)
+* Project:        YCrCbGuass
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      9.18|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +--------+--------+--------+--------+---------+
+    |     Latency     |     Interval    | Pipeline|
+    |   min  |   max  |   min  |   max  |   Type  |
+    +--------+--------+--------+--------+---------+
+    |  345604|  345604|  345604|  345604|   none  |
+    +--------+--------+--------+--------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-----------------------------+--------+--------+----------+-----------+-----------+--------+----------+
+        |                             |     Latency     | Iteration|  Initiation Interval  |  Trip  |          |
+        |          Loop Name          |   min  |   max  |  Latency |  achieved |   target  |  Count | Pipelined|
+        +-----------------------------+--------+--------+----------+-----------+-----------+--------+----------+
+        |- loop_height2_loop_weight2  |  345602|  345602|         4|          1|          1|  345600|    yes   |
+        +-----------------------------+--------+--------+----------+-----------+-----------+--------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+-------+
+|       Name      | BRAM_18K| DSP48E|   FF   |  LUT  |
++-----------------+---------+-------+--------+-------+
+|DSP              |        -|      -|       -|      -|
+|Expression       |        -|      -|       0|    210|
+|FIFO             |        -|      -|       -|      -|
+|Instance         |        -|      0|     230|    607|
+|Memory           |        -|      -|       -|      -|
+|Multiplexer      |        -|      -|       -|     93|
+|Register         |        0|      -|     354|     64|
++-----------------+---------+-------+--------+-------+
+|Total            |        0|      0|     584|    974|
++-----------------+---------+-------+--------+-------+
+|Available        |      280|    220|  106400|  53200|
++-----------------+---------+-------+--------+-------+
+|Utilization (%)  |        0|      0|   ~0   |      1|
++-----------------+---------+-------+--------+-------+
+
++ Detail: 
+    * Instance: 
+    +---------------------------+----------------------+---------+-------+-----+-----+
+    |          Instance         |        Module        | BRAM_18K| DSP48E|  FF | LUT |
+    +---------------------------+----------------------+---------+-------+-----+-----+
+    |ImgProcess_Top_dcwdI_U129  |ImgProcess_Top_dcwdI  |        0|      0|  130|  469|
+    |ImgProcess_Top_fpkbM_U128  |ImgProcess_Top_fpkbM  |        0|      0|  100|  138|
+    +---------------------------+----------------------+---------+-------+-----+-----+
+    |Total                      |                      |        0|      0|  230|  607|
+    +---------------------------+----------------------+---------+-------+-----+-----+
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +----------------------------------+----------+-------+---+----+------------+------------+
+    |           Variable Name          | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +----------------------------------+----------+-------+---+----+------------+------------+
+    |indvar_flatten_next_fu_126_p2     |     +    |      0|  0|  26|          19|           1|
+    |ap_block_state3_pp0_stage0_iter1  |    and   |      0|  0|   8|           1|           1|
+    |ap_block_state5_pp0_stage0_iter3  |    and   |      0|  0|   8|           1|           1|
+    |tmp_32_fu_184_p2                  |    and   |      0|  0|   8|           1|           1|
+    |tmp_34_fu_190_p2                  |    and   |      0|  0|   8|           1|           1|
+    |exitcond_flatten_fu_120_p2        |   icmp   |      0|  0|  18|          19|          19|
+    |notlhs1_fu_141_p2                 |   icmp   |      0|  0|  13|          11|           2|
+    |notlhs_fu_164_p2                  |   icmp   |      0|  0|  13|          11|           2|
+    |notrhs2_fu_114_p2                 |   icmp   |      0|  0|  29|          52|           1|
+    |notrhs_fu_170_p2                  |   icmp   |      0|  0|  29|          52|           1|
+    |ap_block_pp0_stage0_00001         |    or    |      0|  0|   8|           1|           1|
+    |ap_block_state1                   |    or    |      0|  0|   8|           1|           1|
+    |tmp_30_fu_176_p2                  |    or    |      0|  0|   8|           1|           1|
+    |tmp_31_fu_180_p2                  |    or    |      0|  0|   8|           1|           1|
+    |origin_data_stream_0_V_din        |  select  |      0|  0|   2|           1|           2|
+    |ap_enable_pp0                     |    xor   |      0|  0|   8|           1|           2|
+    |ap_enable_reg_pp0_iter1           |    xor   |      0|  0|   8|           2|           1|
+    +----------------------------------+----------+-------+---+----+------------+------------+
+    |Total                             |          |      0|  0| 210|         176|          39|
+    +----------------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +---------------------------------+----+-----------+-----+-----------+
+    |               Name              | LUT| Input Size| Bits| Total Bits|
+    +---------------------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm                        |  21|          4|    1|          4|
+    |ap_done                          |   9|          2|    1|          2|
+    |ap_enable_reg_pp0_iter1          |   9|          2|    1|          2|
+    |ap_enable_reg_pp0_iter3          |   9|          2|    1|          2|
+    |indvar_flatten_reg_87            |   9|          2|   19|         38|
+    |nor_copy2_data_stream_0_V_blk_n  |   9|          2|    1|          2|
+    |origin_data_stream_0_V_blk_n     |   9|          2|    1|          2|
+    |real_start                       |   9|          2|    1|          2|
+    |tmp3_blk_n                       |   9|          2|    1|          2|
+    +---------------------------------+----+-----------+-----+-----------+
+    |Total                            |  93|         20|   27|         56|
+    +---------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +----------------------------+----+----+-----+-----------+
+    |            Name            | FF | LUT| Bits| Const Bits|
+    +----------------------------+----+----+-----+-----------+
+    |ap_CS_fsm                   |   3|   0|    3|          0|
+    |ap_done_reg                 |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter0     |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter1     |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter2     |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter3     |   1|   0|    1|          0|
+    |exitcond_flatten_reg_219    |   1|   0|    1|          0|
+    |indvar_flatten_reg_87       |  19|   0|   19|          0|
+    |notlhs1_reg_228             |   1|   0|    1|          0|
+    |notlhs_reg_239              |   1|   0|    1|          0|
+    |notrhs2_reg_214             |   1|   0|    1|          0|
+    |notrhs_reg_244              |   1|   0|    1|          0|
+    |scalar_tmp3_to_int_reg_209  |  64|   0|   64|          0|
+    |start_once_reg              |   1|   0|    1|          0|
+    |tmp3_read_reg_204           |  64|   0|   64|          0|
+    |tmp_33_reg_249              |   1|   0|    1|          0|
+    |tmp_76_i_reg_233            |  64|   0|   64|          0|
+    |exitcond_flatten_reg_219    |  64|  32|    1|          0|
+    |notlhs1_reg_228             |  64|  32|    1|          0|
+    +----------------------------+----+----+-----+-----------+
+    |Total                       | 354|  64|  228|          0|
+    +----------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-----------------------------------+-----+-----+------------+---------------------------+--------------+
+|             RTL Ports             | Dir | Bits|  Protocol  |       Source Object       |    C Type    |
++-----------------------------------+-----+-----+------------+---------------------------+--------------+
+|ap_clk                             |  in |    1| ap_ctrl_hs |    YCrCb_GUASSIAN_Loop_   | return value |
+|ap_rst                             |  in |    1| ap_ctrl_hs |    YCrCb_GUASSIAN_Loop_   | return value |
+|ap_start                           |  in |    1| ap_ctrl_hs |    YCrCb_GUASSIAN_Loop_   | return value |
+|start_full_n                       |  in |    1| ap_ctrl_hs |    YCrCb_GUASSIAN_Loop_   | return value |
+|ap_done                            | out |    1| ap_ctrl_hs |    YCrCb_GUASSIAN_Loop_   | return value |
+|ap_continue                        |  in |    1| ap_ctrl_hs |    YCrCb_GUASSIAN_Loop_   | return value |
+|ap_idle                            | out |    1| ap_ctrl_hs |    YCrCb_GUASSIAN_Loop_   | return value |
+|ap_ready                           | out |    1| ap_ctrl_hs |    YCrCb_GUASSIAN_Loop_   | return value |
+|start_out                          | out |    1| ap_ctrl_hs |    YCrCb_GUASSIAN_Loop_   | return value |
+|start_write                        | out |    1| ap_ctrl_hs |    YCrCb_GUASSIAN_Loop_   | return value |
+|nor_copy2_data_stream_0_V_dout     |  in |   32|   ap_fifo  | nor_copy2_data_stream_0_V |    pointer   |
+|nor_copy2_data_stream_0_V_empty_n  |  in |    1|   ap_fifo  | nor_copy2_data_stream_0_V |    pointer   |
+|nor_copy2_data_stream_0_V_read     | out |    1|   ap_fifo  | nor_copy2_data_stream_0_V |    pointer   |
+|tmp3_dout                          |  in |   64|   ap_fifo  |            tmp3           |    pointer   |
+|tmp3_empty_n                       |  in |    1|   ap_fifo  |            tmp3           |    pointer   |
+|tmp3_read                          | out |    1|   ap_fifo  |            tmp3           |    pointer   |
+|origin_data_stream_0_V_din         | out |    8|   ap_fifo  |   origin_data_stream_0_V  |    pointer   |
+|origin_data_stream_0_V_full_n      |  in |    1|   ap_fifo  |   origin_data_stream_0_V  |    pointer   |
+|origin_data_stream_0_V_write       | out |    1|   ap_fifo  |   origin_data_stream_0_V  |    pointer   |
++-----------------------------------+-----+-----+------------+---------------------------+--------------+
+
